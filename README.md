@@ -253,10 +253,6 @@ e2e-tests/               --> config and source files for e2e tests
 
 node_modules/...         --> 3rd party libraries and development tools (fetched using `npm`)
 
-scripts/                 --> handy scripts
-  private/...            --> private scripts used by the AngularJS Team to maintain this repo
-  update-repo.sh         --> script for pulling down the latest version of this repo (!!! DELETES ALL CHANGES YOU HAVE MADE !!!)
-
 karma.conf.js            --> config file for running unit tests with Karma
 package.json             --> Node.js specific metadata, including development tools dependencies
 package-lock.json        --> Npm specific metadata, including versions of installed development tools dependencies
