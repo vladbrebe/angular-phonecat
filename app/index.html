@@ -1,14 +1,41 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app> <!-- ng-app designates the root element, in this case the <html> tag -->
+                        <!-- https://docs.angularjs.org/api/ng/directive/ngApp -->
   <head>
     <meta charset="utf-8">
     <title>My HTML File</title>
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
-    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular.js"></script> <!-- load the JavaScript file named angular.js, the toolkit-->
   </head>
   <body>
 
-    <p>Nothing here {{'yet' + '!'}}</p>
+    <p>Nothing here {{'yet' + '!'}}</p> <!-- evaluate expression inside {{ }} insert the result in the DOM-->
+                                        <!-- A DOM is the browsers live representation of the HTML file -->
+                                        <!-- NOT a one-time insert, rather, efficient continuous updates whenever the result changes -->
+                                        <!-- https://docs.angularjs.org/guide/expression -->
+    <p>1 + 2 = {{1+2}}</p>
+
 
   </body>
 </html>
+
+<!-- === During bootstrap 3 things happen ===
+      1. The $injector is created. This retrieves objecst defined by $provide
+          $provide is a service the registers components for $injector
+
+          service <--- service factory <--- service providers (constructor functions, contains $get)
+
+          when requesting service, $injector finds the correct service provider and calls its $get
+          service factory function to get the exact instance of service
+
+      2. The $injector creates the root scope 
+
+      3. AngularJS will compile the document starting at npApp root element
+
+    === After bootstrap ===
+    The DOM will wait for browser events (mouse clicks, key presses, HTTP responses) and if 
+    angular detects the this event changes the model the affected bindings will be updated.
+
+    https://github.com/angular/angular-seed 
+    Provides a template for an Angular project
+-->
