@@ -5,6 +5,21 @@ describe('phoneList', function() {
   // Load the module that contains the `phoneList` component before each test
   beforeEach(module('phoneList'));
 
+  // Add a custom equality tester before each test, that verifies that
+  // two objects are equal, but ignores any $$-prefixed (and $-prefixed,
+  // e.g. `$promise`/`$resolved` from $resource) properties
+  beforeEach(function() {
+    jasmine.addMatchers({
+      toEqualData: function(util) {
+        return {
+          compare: function(actual, expected) {
+            return {pass: angular.equals(actual, expected)};
+          }
+        };
+      }
+    });
+  });
+
   // Test the controller
   describe('PhoneListController', function() {
     var $httpBackend, ctrl;
@@ -20,9 +35,9 @@ describe('phoneList', function() {
     }));
 
     it('should create a `phones` property with 2 phones fetched with `$http`', function() {
-      expect(ctrl.phones).toBeUndefined();
+      expect(ctrl.phones).toEqualData([]);
       $httpBackend.flush();
-      expect(ctrl.phones).toEqual([{name: 'Nexus S'}, {name: 'Motorola DROID'}]);
+      expect(ctrl.phones).toEqualData([{name: 'Nexus S'}, {name: 'Motorola DROID'}]);
     });
 
     it('should set a default value for the `orderProp` property', function() {

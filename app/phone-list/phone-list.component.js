@@ -6,7 +6,18 @@ angular.
   module('phoneList').
   component('phoneList', {
     templateUrl: 'phone-list/phone-list.template.html',
-    controller: ['$http',
+    controller: ['Phone',
+      function PhoneListController(Phone) {
+        this.phones = Phone.query();
+        this.orderProp = 'age';
+      }
+    ]
+    
+  });
+
+
+/* OLD CONTROLLER WITHOUT API
+  controller: ['$http',
       function PhoneListController($http) {
         var self = this;
         self.orderProp = 'age';
@@ -21,4 +32,4 @@ angular.
         });
       }
     ] // as an array to avoid minification
-  });
+*/
