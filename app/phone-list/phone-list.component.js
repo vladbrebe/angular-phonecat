@@ -17,7 +17,7 @@ angular.
         // doesn't work, because .then() wants to invoke the function inside
         // also, need a way to parse the `response` from .get()
         $http.get('phones/phones.json').then(function(response) {
-          self.phones = response.data.slice(0,5)
+          self.phones = response.data
         });
       }
     ] // as an array to avoid minification
