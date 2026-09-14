@@ -21,7 +21,8 @@
       <!--Body content-->
 
         <ul class="phones">
-        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query.slice(0,5) | orderBy:$ctrl.orderProp" class="thumbnail">
+        <li ng-repeat="phone in filteredPhones = ($ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp) | limitTo:5" class="thumbnail">
+
             <a href="#!/phones/{{phone.id}}" class="thumb">
             <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
             </a>
@@ -29,7 +30,17 @@
             <p>{{phone.snippet}}</p>
         </li>
         </ul>
-
+    
+    <!-- In the search bar, type "s"   for 20 results
+                                 "sa"  for 6
+                                 "sam" for 5-->
+    <p ng-if="filteredPhones.length == 6">
+        1 more result...
+    </p>
+    <p ng-if="filteredPhones.length > 6">
+        {{filteredPhones.length - 5}} more results...
+    </p>
+    
     </div>
   </div>
   <pre>{{$ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp | json}}</pre>

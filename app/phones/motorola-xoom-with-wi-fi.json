@@ -5,12 +5,12 @@
         "ui": "Honeycomb"
     }, 
     "availability": [
-        ""
+        "Unlocked"
     ], 
     "battery": {
         "standbyTime": "336 hours", 
         "talkTime": "24 hours", 
-        "type": "Other ( mAH)"
+        "type": "Other (mAH)"
     }, 
     "camera": {
         "features": [
