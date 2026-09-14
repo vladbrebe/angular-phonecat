@@ -4,7 +4,7 @@
 // No scope inheritance from root scope
 angular.
   module('phoneList').
-  component('phoneList', { // translates into "<phone-list><\phone-list>" by Angular
+  component('phoneList', { // translates into "<phone-list></phone-list>" by Angular
     templateUrl: 'phone-list/phone-list.template.html',
     controller: function PhoneListController() {
       this.phones = [
