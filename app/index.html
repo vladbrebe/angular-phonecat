@@ -1,33 +1,39 @@
 <!doctype html>
-<html lang="en" ng-app> <!-- ng-app designates the root element, in this case the <html> tag. https://docs.angularjs.org/api/ng/directive/ngApp -->
+<html lang="en" ng-app="phonecatApp"> <!-- ng-app designates the root element, in this case the <html> tag. https://docs.angularjs.org/api/ng/directive/ngApp -->
   <head>
     <meta charset="utf-8">
     <title>Google Phone Gallery</title>
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="app.css" />
-    <script src="lib/angular/angular.js"></script> <!-- load the JavaScript file named angular.js, the toolkit-->
+    <script src="lib/angular/angular.js"></script> 
+    <script src="app.js"></script>
   </head>
-  <body>
 
-    <p>Nothing here {{'yet' + '!'}}</p>
-    <p>Total number of phones: 2</p>
+  <body ng-controller="PhoneListController">
+
     <ul>
-      <li>
-        <span>Nexus S</span>
-        <p>
-          Fast just got faster with Nexus S.
-        </p>
-      </li>
-      <li>
-        <span>Motorola XOOM™ with Wi-Fi</span>
-        <p>
-          The Next, Next Generation tablet.
-        </p>
+      <li ng-repeat="phone in phones">
+        <span>{{phone.name}}</span>
+        <p>{{phone.snippet}}</p>
       </li>
     </ul>
 
+    <p>total number of phones: {{phones.length}}</p>
+
+    <p>Hello, {{ name }}!</p>
+
+    8x8 Table 
+    <table>
+      <tr>
+        <th ng-repeat="i in [0,1,2,3,4,5,6,7]">Row#{{i+1}}&nbsp;&nbsp;</th>
+      </tr>
+      <tr ng-repeat="i in [0,1,2,3,4,5,6,7]">
+        <td ng-repeat="j in [0,1,2,3,4,5,6,7]">({{i}},{{j}})</td>
+      </tr>
+    </table>
 
   </body>
+
 </html>
 
 <!-- === During bootstrap 3 things happen ===
