@@ -15,11 +15,24 @@
     <script src="app.config.js"></script>
     <script src="phone-detail/phone-detail.module.js"></script>
     <script src="phone-detail/phone-detail.component.js"></script>
+    <script src="core/core.module.js"></script>
+    <script src="core/checkmark/checkmark.filter.js"></script>
   </head>
 
   <body>
     
+
+    <!--
+    {{'lower cap string' | uppercase}}
+    {{{foo: 'bar', baz: 42} | json}}
+    {{1459461289000 | date}}
+    {{1459461289000 | date:'MM/dd/yyyy @ h:mma'}}
+
+    <input ng-model="userInput" /> Uppercased: {{userInput | uppercase}}
+    -->
+
     <div ng-view></div>
+
 
   </body>
 
